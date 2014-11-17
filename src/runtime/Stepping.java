@@ -44,5 +44,13 @@ public class Stepping implements Runnable{
 		finished = true;
 		
 	}
+	
+	public static ArrayList<Thing> getSection(ArrayList<Thing> things,int start, int stop){
+		ArrayList<Thing> temp  = new ArrayList<Thing>();
+		for( int i = start; i< stop; i++)
+			temp.add( things.get(i + start) );
+		
+		return temp;
+	}
 
 }
