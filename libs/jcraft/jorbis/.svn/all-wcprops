@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis
+END
+JOrbisException.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/JOrbisException.java
+END
+DspState.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/DspState.java
+END
+VorbisFile.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/VorbisFile.java
+END
+Info.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Info.java
+END
+Block.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Block.java
+END
+FuncMapping.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/FuncMapping.java
+END
+ChainingExample.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/ChainingExample.java
+END
+Lsp.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Lsp.java
+END
+Mdct.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Mdct.java
+END
+FuncFloor.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/FuncFloor.java
+END
+FuncResidue.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/FuncResidue.java
+END
+Residue2.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Residue2.java
+END
+Residue1.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Residue1.java
+END
+Floor1.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Floor1.java
+END
+Residue0.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Residue0.java
+END
+Floor0.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Floor0.java
+END
+PsyInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/PsyInfo.java
+END
+StaticCodeBook.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/StaticCodeBook.java
+END
+Time0.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Time0.java
+END
+Mapping0.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Mapping0.java
+END
+Util.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Util.java
+END
+Comment.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Comment.java
+END
+Lpc.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Lpc.java
+END
+Drft.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Drft.java
+END
+DecodeExample.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/DecodeExample.java
+END
+Lookup.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/Lookup.java
+END
+CodeBook.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/CodeBook.java
+END
+PsyLook.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/PsyLook.java
+END
+InfoMode.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/InfoMode.java
+END
+FuncTime.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jorbis/FuncTime.java
+END

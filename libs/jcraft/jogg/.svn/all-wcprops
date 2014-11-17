@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jogg
+END
+Buffer.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jogg/Buffer.java
+END
+Page.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jogg/Page.java
+END
+Packet.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jogg/Packet.java
+END
+SyncState.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jogg/SyncState.java
+END
+StreamState.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/3/trunk/AlphaProject/src/audio/jcraft/jogg/StreamState.java
+END
