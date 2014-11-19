@@ -25,7 +25,7 @@ public class Level extends GamePanel{
 		blob = Blob.findBlob(this);
 		camera = new Camera2D(this, blob, 0, 0, Camera2D.NormalScroll);
 		
-		
+		showFPS = true;
 	}
 	
 	

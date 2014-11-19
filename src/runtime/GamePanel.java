@@ -41,8 +41,8 @@ public class GamePanel extends JPanel{
 	private Stepping[] stepping = new Stepping[4];
 	private Thread[] threads = new Thread[4];
 	
-	protected int SPS,FPS; //SPS - Steps in the last Second - Steps per second
-						 //FPS - number of renders in the last second - frames per second
+	protected int FPS; 
+	protected boolean showFPS = false;	//FPS - number of renders in the last second - frames per second
 	
 	protected Camera2D camera;
 	
@@ -187,9 +187,15 @@ public class GamePanel extends JPanel{
 	}
 	
 	public void run2(){
-		
+		FPS = 0;
+		long startIteration = 0;
+		long endIteration = 0;
+		int time = 0;
+		int count = 0;
 		while(running){
 			inRunLoop = true;
+			
+			startIteration = System.currentTimeMillis();
 			
 			Time t = new Time( References.MINIMUM_ITERATION_TIME );
 			Thread timer = new Thread( t);
@@ -247,78 +253,26 @@ public class GamePanel extends JPanel{
 				e.printStackTrace();
 			}
 			
+			endIteration = System.currentTimeMillis();
+			long delta =  (endIteration - startIteration);
+			time = time +  (int)delta;
+			count++;
+			if ( time > 1000){
+				System.out.println("time:" + time);
+				FPS = ((count*1000)/time);
+				System.out.println("FPS: " + FPS);
+				time = 0;
+				count = 0;
+				if ( showFPS)
+					game.setTitle("FPS: " + FPS);
+		
+			}
 		}
 		inRunLoop = false;
 		
 		stop();
 	}
 	
-	
-	
-	
-	/**
-	 * NEVER ALTER THIS METHOD
-	 * NEVER CALL THIS METHOD IN A SUBCLASS
-	 * test change
-	 */
-	public void run() {
-		
-		long lastTime = System.nanoTime();
-		final double numTicks = 60.0;
-		double n = 1000000000 / numTicks;
-		double delta = 0;
-		int frames = 0;
-		int ticks = 0;
-		long timer = System.currentTimeMillis();
-		
-		while(running){
-			long currentTime = System.nanoTime();
-			delta +=(currentTime - lastTime)/n;
-			lastTime = currentTime;
-			
-			if(delta >=1){
-				if(state == PanelState.RUNNING)
-					Step();
-				
-				else if(state == PanelState.PAUSED)
-					PausedStep();
-				else if(state == PanelState.STOPPED)
-					return;
-					
-				else
-					System.out.println("Panel Run State Undefined under Engine.GamePanel.run: " + state.toString() );
-				ticks++;
-				delta--;
-			}
-			
-			if(state == PanelState.RUNNING || state ==PanelState.PAUSED)
-				repaint();
-			else if(state == PanelState.PAUSED)
-				PausedPaint( super.getGraphics() );
-			else if(state == PanelState.STOPPED)
-				return;
-			else
-				System.out.println("Panel Paint State Undefined under Engine.GamePanel.run: " + state.toString() );
-			
-
-			frames++;
-			
-			if(System.currentTimeMillis() - timer > 1000){
-				timer+=1000;
-//				System.out.println(ticks + " Ticks, FPS: " + frames);
-//				game.setTitle( "        Ticks: " + ticks + "    FPS: " + frames);
-				//ticks are the number of Iterations in the last second
-				//FPS is the number of renders in the last second
-				this.SPS = ticks;
-				this.FPS = frames;
-				ticks = 0;
-				frames = 0;
-			}
-		}
-		
-		stop();
-		
-	}
 	
 	public boolean isInRunLoop(){ return inRunLoop; }
 	
