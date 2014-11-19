@@ -190,12 +190,18 @@ public class GamePanel extends JPanel{
 		
 		while(running){
 			inRunLoop = true;
+			
+			Time t = new Time( References.MINIMUM_ITERATION_TIME );
+			Thread timer = new Thread( t);
+			timer.start();
+			
 			boolean threadStarted = false;
 			//separate into threads
-			Stepping[] stepping = new Stepping[4];
-			Thread[] threads = new Thread[4];
-			int length = stuff.size() / 4;
-			for ( int thread = 0; thread < 4; thread++){
+			int numThreads = References.THREADS;
+			Stepping[] stepping = new Stepping[numThreads];
+			Thread[] threads = new Thread[numThreads];
+			int length = stuff.size() / numThreads;
+			for ( int thread = 0; thread < threads.length; thread++){
 				stepping[thread] = new Stepping( Stepping.getSection(stuff, thread*length, (thread+1)*length) );
 				threads[thread] = new Thread( stepping[thread] );
 			}
@@ -236,7 +242,7 @@ public class GamePanel extends JPanel{
 			
 			//limit speed of game loop
 			try {
-				Thread.sleep(17);
+				timer.join();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

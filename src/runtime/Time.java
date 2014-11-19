@@ -1,21 +1,25 @@
 package runtime;
 
-public class Time extends Thread{
+public class Time implements Runnable{
 	
 	private int wait;
 	
 	public Time(int wait){
 		this.wait = wait;
 	}
-	
+
 	@Override
 	public void run() {
-		super.run();
-		try {
-			Thread.sleep(wait);
-		} catch(InterruptedException e){
-			e.printStackTrace();
-		}
+			try {
+				Thread.sleep(wait);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		
 	}
+	
+	
 
 }

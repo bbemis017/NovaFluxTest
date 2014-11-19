@@ -39,8 +39,7 @@ public class Menu extends GamePanel{
 		if(pb.isFinished())
 			play.Enable(true);
 		
-		System.out.println("step");
-		System.out.println( pb.getProgress() );
+	
 	}
 	
 	@Override
