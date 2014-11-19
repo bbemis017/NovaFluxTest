@@ -17,7 +17,7 @@ import tools.*;
 
 
 
-public class GamePanel extends JPanel implements Runnable{
+public class GamePanel extends JPanel{
 	
 	/**
 	 * This Class controls the Game Loop and most major parts of the game
@@ -32,10 +32,14 @@ public class GamePanel extends JPanel implements Runnable{
 	public BufferedImage background;
 	
 	public Driver game;
-	private Thread thread;
+	
 	
 	public PanelState state = PanelState.STOPPED;
 	private boolean running = false;
+	private boolean inRunLoop = false;
+	
+	private Stepping[] stepping = new Stepping[4];
+	private Thread[] threads = new Thread[4];
 	
 	protected int SPS,FPS; //SPS - Steps in the last Second - Steps per second
 						 //FPS - number of renders in the last second - frames per second
@@ -68,9 +72,6 @@ public class GamePanel extends JPanel implements Runnable{
 			camera.Step();
 			Driver.frame.setLocation(-(int)camera.getX(), -(int)camera.getY() );
 		}
-		
-		for (int bbb = 0; bbb < stuff.size(); bbb++)
-			((Thing) stuff.get(bbb)).Step();
 
 		
 		for (int bbb = 0; bbb < AlarmStatus.size(); bbb++) {
@@ -147,19 +148,6 @@ public class GamePanel extends JPanel implements Runnable{
 	 */
 	public void AlarmActive(int position){}
 
-
-	
-	/**
-	 * Starts the infinite loop for the GamePanel should be the last to be
-	 * called from the driver
-	 */
-	public void startPanel(){ state = PanelState.RUNNING; start(); }
-	
-	/**
-	 * Stops the infinite loop for the GamePanel
-	 */
-	public void stopPanel() { state = PanelState.STOPPED;  }
-	
 	
 	public void mouseClicked(MouseEvent e) {}
 	public void mouseEntered(MouseEvent e) {}
@@ -172,12 +160,101 @@ public class GamePanel extends JPanel implements Runnable{
 	public void keyReleased(KeyEvent e) {}
 	public void keyTyped(KeyEvent e) {}
 	
+	
+	/**
+	 * Starts the infinite loop for the GamePanel should be the last to be
+	 * called from the driver
+	 */
+	public void startPanel(){ state = PanelState.RUNNING; start(); }
+	
+	/**
+	 * Stops the infinite loop for the GamePanel should only be called within a
+	 * separate thread.
+	 * 
+	 * Use the DriverAction class to call this method
+	 */
+	public void stopPanel() { stop(); state = PanelState.STOPPED;  }
+	
+	
+	
+	public void start(){
+		running = true;
+		run2();
+	}
+	
+	private void stop(){
+		running = false;
+	}
+	
+	public void run2(){
+		
+		while(running){
+			inRunLoop = true;
+			boolean threadStarted = false;
+			//separate into threads
+			Stepping[] stepping = new Stepping[4];
+			Thread[] threads = new Thread[4];
+			int length = stuff.size() / 4;
+			for ( int thread = 0; thread < 4; thread++){
+				stepping[thread] = new Stepping( Stepping.getSection(stuff, thread*length, (thread+1)*length) );
+				threads[thread] = new Thread( stepping[thread] );
+			}
+			
+			if(state == PanelState.RUNNING){
+				
+				//step through all threads
+				threadStarted = true;
+				//start threads
+				for ( int thread = 0; thread< threads.length; thread++)
+					threads[thread].start();
+				
+				Step();
+			}
+			
+			else if(state == PanelState.PAUSED)
+				PausedStep();
+			else if(state == PanelState.STOPPED)
+				return;
+				
+			else
+				System.out.println("Panel Run State Undefined under Engine.GamePanel.run: " + state.toString() );
+			
+			
+			if ( threadStarted){
+				//wait till all threads are finished
+				for( int thread = 0; thread< threads.length; thread++){
+					try {
+						threads[thread].join();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			
+			//repaint screen
+			repaint();
+			
+			//limit speed of game loop
+			try {
+				Thread.sleep(17);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		inRunLoop = false;
+		
+		stop();
+	}
+	
+	
+	
+	
 	/**
 	 * NEVER ALTER THIS METHOD
 	 * NEVER CALL THIS METHOD IN A SUBCLASS
 	 * test change
 	 */
-	@Override
 	public void run() {
 		
 		long lastTime = System.nanoTime();
@@ -237,36 +314,8 @@ public class GamePanel extends JPanel implements Runnable{
 		
 	}
 	
-	/**
-	 * Relates directly to Game Loop, NEVER ALTER
-	 */
-	private synchronized void start(){
-		if(running)
-			return;
-		else
-			running = true;
-		
-		thread = new Thread(this);
-		thread.start();
-	}
-	/**
-	 * Relates directly to Game Loop, NEVER ALTER
-	 */
-	private synchronized void stop(){
-		if(!running)
-			return;
-		else 
-			running = false;
-		
-		try {
-			thread.join();
-		} catch (InterruptedException e) {
-			
-			e.printStackTrace();
-		}
-		
-		System.exit(1);
-	}
+	public boolean isInRunLoop(){ return inRunLoop; }
+	
 
 
 	

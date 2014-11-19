@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 
 import main.LM;
 import runtime.Driver;
+import runtime.DriverAction;
 import runtime.GamePanel;
 import tools.Button;
 import tools.ProgressBar;
@@ -37,6 +38,9 @@ public class Menu extends GamePanel{
 		super.Step();
 		if(pb.isFinished())
 			play.Enable(true);
+		
+		System.out.println("step");
+		System.out.println( pb.getProgress() );
 	}
 	
 	@Override
@@ -74,7 +78,11 @@ public class Menu extends GamePanel{
 		@Override
 		public void Clicked() {
 			super.Clicked();
-			game.startPanel(1);
+			
+
+			DriverAction da = new DriverAction(game,DriverAction.NEXT_PANEL, 1);
+			Thread t = new Thread(da);
+			t.start();
 		}
 		
 	}

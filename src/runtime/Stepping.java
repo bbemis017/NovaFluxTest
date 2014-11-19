@@ -6,7 +6,7 @@ import tools.Thing;
 
 /**
  * This class accepts an ArrayList of things and is designed to Step through
- * all the elements in the array in a separate thread
+ * a section of the elements in the array in a separate thread
  * 
  * @author Benjamin Bemis
  *
@@ -29,18 +29,6 @@ public class Stepping implements Runnable{
 		for (int bbb = 0; bbb < things.size(); bbb++)
 			((Thing) things.get(bbb)).Step();
 		
-		
-		for(int bbb = 0; bbb < things.size(); bbb++){
-			Thing thing = things.get(bbb);
-			if(thing.mask != null){
-				if(thing.mask.getRect().intersects( Driver.frame ) )
-					thing.setRenderBoolean(true);
-				else
-					thing.setRenderBoolean(false);	
-			}else if(thing.mask == null)
-				thing.setRenderBoolean(true);
-		}
-		
 		finished = true;
 		
 	}
@@ -48,7 +36,7 @@ public class Stepping implements Runnable{
 	public static ArrayList<Thing> getSection(ArrayList<Thing> things,int start, int stop){
 		ArrayList<Thing> temp  = new ArrayList<Thing>();
 		for( int i = start; i< stop; i++)
-			temp.add( things.get(i + start) );
+			temp.add( things.get(i) );
 		
 		return temp;
 	}

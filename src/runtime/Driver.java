@@ -86,7 +86,7 @@ public abstract class Driver extends JFrame implements KeyListener,
 		System.out.println("start panel");
 		(panels.get(CurrentPanel)).stopPanel();
 		
-		//TDOO
+		
 		System.out.println("panel stopped");
 		(panels.get(CurrentPanel)).setVisible(false);
 		game.remove(panels.get(CurrentPanel));
@@ -109,6 +109,7 @@ public abstract class Driver extends JFrame implements KeyListener,
 			Loader.End();
 		OggManager.destroy();
 		System.out.println("ALL AUDIO RESOURCES DISPOSED OF");
+
 		System.exit(1);
 	}
 
