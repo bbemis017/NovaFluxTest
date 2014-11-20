@@ -258,9 +258,9 @@ public class GamePanel extends JPanel{
 			time = time +  (int)delta;
 			count++;
 			if ( time > 1000){
-				System.out.println("time:" + time);
+				
 				FPS = ((count*1000)/time);
-				System.out.println("FPS: " + FPS);
+				
 				time = 0;
 				count = 0;
 				if ( showFPS)
@@ -270,7 +270,7 @@ public class GamePanel extends JPanel{
 		}
 		inRunLoop = false;
 		
-		stop();
+		
 	}
 	
 	

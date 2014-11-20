@@ -46,6 +46,7 @@ public class DriverAction implements Runnable{
 		GamePanel currentPanel = Driver.panels.get( Driver.CurrentPanel );
 		
 		currentPanel.stopPanel();
+		
 		while( currentPanel.isInRunLoop() );
 		//blocks thread until the current panel has stopped
 		

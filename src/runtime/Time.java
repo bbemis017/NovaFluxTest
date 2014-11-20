@@ -13,7 +13,6 @@ public class Time implements Runnable{
 			try {
 				Thread.sleep(wait);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		

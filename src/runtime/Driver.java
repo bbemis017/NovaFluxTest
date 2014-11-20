@@ -83,11 +83,11 @@ public abstract class Driver extends JFrame implements KeyListener,
 	 *            - index of indicated GamePanel
 	 */
 	public void startPanel(int nextPanel) {
-		System.out.println("start panel");
+		
 		(panels.get(CurrentPanel)).stopPanel();
 		
 		
-		System.out.println("panel stopped");
+		
 		(panels.get(CurrentPanel)).setVisible(false);
 		game.remove(panels.get(CurrentPanel));
 
